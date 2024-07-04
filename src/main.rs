@@ -1,4 +1,5 @@
 mod controlflow;
+mod sequence;
 
 struct Mytuples(bool, u32, f32); // if we have multiple data with same tuple we can do this
 
@@ -72,5 +73,6 @@ fn main() {
     // println!("{}",var2);
 
     controlflow::main();
+    sequence::sequence();
 
 }
