@@ -1,5 +1,6 @@
 mod controlflow;
 mod sequence;
+mod stackandqueue;
 
 struct Mytuples(bool, u32, f32); // if we have multiple data with same tuple we can do this
 
@@ -74,5 +75,6 @@ fn main() {
 
     controlflow::main();
     sequence::sequence();
+    stackandqueue::stkndq();
 
 }
