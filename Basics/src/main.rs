@@ -6,9 +6,9 @@ mod tuplesandenums;
 
 
 fn main() {
-    // tuplesandenums::tuplesandenums();
-    // controlflow::main();
-    // sequence::sequence();
-    // stackandqueue::stkndq();
+    tuplesandenums::tuplesandenums();
+    controlflow::main();
+    sequence::sequence();
+    stackandqueue::stkndq();
     errorhandling::er_handler();
 }
