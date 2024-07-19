@@ -1,9 +1,3 @@
-mod controlflow;
-mod sequence;
-mod stackandqueue;
-mod errorhandling;
-
-
 struct Mytuples(bool, u32, f32); // if we have multiple data with same tuple we can do this
 
 //structs can be made in as
@@ -27,7 +21,7 @@ struct Config {
 //     West
 // }
 
-fn main() {
+pub fn tuplesandenums() {
     // let d = Directions::South;
 
     let mytuple = Mytuples(true, 32, 67.3); //using struct template for tuples
@@ -65,19 +59,13 @@ fn main() {
     // println!("{}", config.port);          // we cant directly access the original variable untill the reference variable is in scope
     println!("{}", new_config.port);
 
-    // Derefrencing 
+    // Derefrencing
 
-    let mut var1= 36;
+    let mut var1 = 36;
     let reference_var = &mut var1;
-    *reference_var =64;
+    *reference_var = 64;
     // let var2 = *reference_var;
 
-    println!("{}",var1);
+    println!("{}", var1);
     // println!("{}",var2);
-
-    controlflow::main();
-    sequence::sequence();
-    stackandqueue::stkndq();
-    errorhandling::er_handler();
-
 }
