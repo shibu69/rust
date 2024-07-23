@@ -11,18 +11,18 @@ mod solana_program {
         Ok(())
     }
 
-    pub fn increment(ctx: Context<UpdateAccounts>)-> Result<()>{
+    pub fn increment(ctx: Context<UpdateAccounts>) -> Result<()> {
         let counter = &mut ctx.accounts.counter;
-        msg!("Previous counter :{}", counter.count);
+        msg!("Previous counter: {}", counter.count);
         counter.count = counter.count.checked_add(1).unwrap();
-        msg!("counter incremented. current counter : {}",counter.count);
-        Ok(());
+        msg!("Counter incremented. Current counter: {}", counter.count);
+        Ok(())
     }
 }
 
 #[derive(Accounts)]
 pub struct Initialize<'info> {
-    #[account(init, seeds = [b"my_seed", user.key.to_bytes().as_ref()], payer = user, space = 8 + 8)]
+    #[account(init, seeds = [b"my_seed", user.key().as_ref()], bump, payer = user, space = 8 + 8)]
     pub counter: Account<'info, Counter>,
     #[account(mut)]
     pub user: Signer<'info>,
@@ -30,13 +30,14 @@ pub struct Initialize<'info> {
 }
 
 #[derive(Accounts)]
-pub struct UpdateAccounts<'info>{
+pub struct UpdateAccounts<'info> {
     #[account(mut)]
-    pub counter : Account<'info,Counter>,
+    pub counter: Account<'info, Counter>,
     pub user: Signer<'info>,
 }
 
 #[account]
-pub struct Counter{
-    count :u64
+#[derive(Default, Debug)]
+pub struct Counter {
+    count: u64,
 }
