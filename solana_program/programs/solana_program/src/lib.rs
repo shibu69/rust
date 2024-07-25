@@ -22,7 +22,7 @@ mod solana_program {
     }
 }
 
-//The set of accounts involved in the instruction
+//The set of accounts involved
 #[derive(Accounts)]
 pub struct Initialize<'info> {
     #[account(init, seeds = [b"my_seed", user.key().as_ref()], bump, payer = user, space = 8 + 8)]
