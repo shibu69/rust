@@ -4,7 +4,6 @@ mod stackandqueue;
 mod errorhandling;
 mod tuplesandenums;
 
-
 fn main() {
     tuplesandenums::tuplesandenums();
     controlflow::main();
